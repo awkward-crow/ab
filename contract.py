@@ -37,7 +37,7 @@ def is_discharging(contracts):
 
 
 def total_committed(p, contracts):
-    return sum([k.transaction(p).rate for k in contracts])
+    return sum(k.transaction(p).rate for k in contracts)
 
 
 ### end
