@@ -39,7 +39,7 @@ A simulation using the market data provided can be run as follows,
 uv run main.py --plot
 ```
 
-This should produce two plots, one of the balance of the battery operator the other of the charge of the battery over a time span of 100 periods i.e. 50 hours. A longer span can be plotted by adding the flag `--n`, for example `uv run main.py --plot --n=500` for 500 time periods.
+This should produce two plots, one of the balance of the battery operator the other of the charge of the battery over a time span of 100 periods i.e. 50 hours. A longer span can be plotted by adding the flag `--n`, for example `uv run main.py --plot --n=500` for 500 time periods.[^1]
 
 This simulation uses a battery with the specifications given in the problem description and the market data provided. 
 
@@ -56,4 +56,7 @@ and consulting `main.py`.
 The problem centred around how to handle the different time periods of the two markets. I chose to make this quite general rather than specific to two markets with 30 minute and 60 minute time periods. The action taken at any point is described by a `Contract`. It consists of one or more `Transactions` for successive periods of time. A contract for market 2 is made up of two transactions. Transactions can be to discharge or charge depending on whether the rate is positive or negative. The `Battery` only concerns itself with charge and cycles, it knows nothing of contracts. The strategy for operating the battery is simple. It is charged if the price in the previous period was below a certain threshold and there is capacity to charge it. Similarly, if the price is above a threshold and there is capacity, discharge.
 
  
+[^1]: I found I needed to specify the browser `BROWSER=firefox uv run main.py --plot`
+
+
 #### end
