@@ -39,7 +39,7 @@ A simulation using the market data provided can be run as follows,
 uv run main.py --plot
 ```
 
-This should produce two plots, one of the balance of the battery operator the other of the charge of the battery over a time span of 100 periods i.e. 50 hours. A longer span can be plotted by adding the flag `--n`, for example `--n=500` for 500 time periods.
+This should produce two plots, one of the balance of the battery operator the other of the charge of the battery over a time span of 100 periods i.e. 50 hours. A longer span can be plotted by adding the flag `--n`, for example `uv run main.py --plot --n=500` for 500 time periods.
 
 This simulation uses a battery with the specifications given in the problem description and the market data provided. 
 
