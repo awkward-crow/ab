@@ -2,7 +2,9 @@
 
 ## the time unit for B is hours
 
-class B:
+## consider using a builder to instantiate a Battery
+
+class Battery:
     def __init__(self, storage_volume, charging_rate, discharging_rate, charging_efficiency, discharging_efficiency, degradation):
         self.storage_volume = storage_volume        # MWh
         self.charging_rate = charging_rate          # MW
@@ -46,7 +48,7 @@ class B:
         
 
 def default_battery():
-    return B(4, 2, 2, 0.05, 0.05, 0.001 / 100)
+    return Battery(4, 2, 2, 0.05, 0.05, 0.001 / 100)
 
 
 
