@@ -1,7 +1,6 @@
 # battery_operator.py
 
 from contract import is_discharging
-from strategy import BandStrategy
 from constants import PERIOD_HOURS
 
 ## the time unit of BatteryOperator is a period of 30 minutes
@@ -21,7 +20,7 @@ class BatteryOperator:
         if not self.contracts:
             self.battery.idle(PERIOD_HOURS)
         else:
-            r = sum([k.transaction(self.period).rate for k in self.contracts])
+            r = sum(k.transaction(self.period).rate for k in self.contracts)
             if is_discharging(self.contracts):
                 self.battery.discharge(PERIOD_HOURS, r)
             else:
